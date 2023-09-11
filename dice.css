@@ -13,8 +13,8 @@ h1 {
 
 /* Dice container */
 #dice-container {
-  display: flex;
-  flex-wrap: wrap-reverse;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   justify-content: center;
   margin-top: 20px;
@@ -45,7 +45,10 @@ h1 {
 .dice-button:hover {
     background: #0057A4;
 }
-
+#clear-button-container {
+  text-align: center; /* Center the Clear button horizontally */
+  margin-top: 10px; /* Adjust the margin as needed to position it vertically */
+}
 /* Results container */
 #results {
   border: 1px solid #ccc;

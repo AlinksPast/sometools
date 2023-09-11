@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D&D Dice Roller</title>
     <link rel="stylesheet" type="text/css" href="dice.css">
 </head>
+
 <body>
     <h1>D&D Dice Roller</h1>
     <div id="dice-container">
@@ -16,6 +18,8 @@
         <button class="dice-button" onclick="rollDie(12)">d12</button>
         <button class="dice-button" onclick="rollDie(20)">d20</button>
         <button class="dice-button" onclick="roll2d20()">2d20</button>
+    </div>
+    <div id="clear-button-container">
         <button class="dice-button" onclick="clearResults()">Clear</button><!-- New clear button -->
     </div>
 
@@ -26,7 +30,8 @@
         <input type="number" id="modifier" min="-999" max="999" value="0">
         <button class="dice-button" onclick="rollWithModifier()">Roll with Modifier</button>
     </div>
- <P>hi</P>
+    <P>hi</P>
     <script src="dice.js"></script>
 </body>
+
 </html>
