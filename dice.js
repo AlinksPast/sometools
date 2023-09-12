@@ -23,6 +23,12 @@ function clearResults() {
 
 function rollWithModifier() {
     const modifier = parseInt(document.getElementById('modifier').value, 10);
+
+    if (isNaN(modifier)) {
+        alert('Please enter a valid modifier.');
+        return;
+    }
+
     const result = Math.floor(Math.random() * 20) + 1;
     const totalResult = result + modifier;
     displayResult(`d20 with Modifier (+${modifier}): ${totalResult}`);
