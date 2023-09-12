@@ -11,10 +11,19 @@ function roll2d20() {
 
 function displayResult(resultText) {
     const resultsContainer = document.getElementById('results');
+    const rollHistoryRadio = document.querySelector('input[name="roll-history"]:checked');
+    const maxRollsToRemember = parseInt(rollHistoryRadio.value);
+  
+    // Remove the oldest roll results if the number of rolls exceeds maxRollsToRemember
+    while (resultsContainer.children.length >= maxRollsToRemember) {
+      resultsContainer.removeChild(resultsContainer.children[0]);
+    }
+  
     const resultElement = document.createElement('p');
     resultElement.textContent = resultText;
     resultsContainer.appendChild(resultElement);
-}
+  }
+  
 
 function clearResults() {
     const resultsContainer = document.getElementById('results');
