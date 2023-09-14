@@ -1,118 +1,85 @@
+
+/* Reset some default browser styles */
+html, body, h1 {
+  margin: 0;
+  padding: 0;
+}
+
 /* Global styles */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0;
-  margin: 0;
-  padding: 0;
+  background-color: #1a1a1a; /* Dark background color */
+  color: #fff; /* Text color */
   text-align: center;
 }
 
 h1 {
-  color: #1c6ea4;
-  margin: 20px 0;
-  font-size: 28px;
-  text-transform: uppercase;
+  background-color: #ff6b6b; /* Red header background color */
+  color: #fff; /* Header text color */
+  padding: 10px;
+  margin: 0;
+  border-radius: 5px; /* Rounded header corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Header box shadow */
+  font-size: 24px; /* Slightly smaller font size */
+  margin-bottom: 10px;
 }
 
 /* Navigation */
 nav {
-  background-color: #1c6ea4;
+  background-color: #ff6b6b; /* Red navigation background color */
   padding: 10px;
 }
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin-right: 10px;
+}
+
 nav a {
   text-decoration: none;
-  color: white;
+  color: #fff; /* Navigation link text color */
   font-weight: bold;
 }
 
 /* Dice container */
-#dice-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.dice-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping of buttons */
   justify-content: center;
   margin-top: 20px;
 }
 
 .dice-button {
   color: #fff;
-  font-size: 20px;
-  padding: 15px 30px;
+  font-size: 16px; /* Slightly smaller font size */
+  padding: 8px 16px; /* Smaller padding */
   border-radius: 50px;
   background-image: radial-gradient(
     at center center,
     rgb(0, 87, 164) 0%,
     rgb(117, 0, 81) 100%
   );
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: none;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin: 5px; /* Smaller margin */
 }
 
 .dice-button:hover {
   background: #0057a4;
+  transform: scale(1.03); /* Slight scale on hover */
 }
 
-/* Clear button container */
-#clear-button-container {
-  text-align: center;
-  margin-top: 20px;
-}
-
-/* Results container */
-/* Results container */
-#results {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 10px; /* Reduced padding */
-  max-height: 200px; /* Maintain max height */
-  margin-top: 20px;
-  background-color: #fff;
-  overflow: hidden; /* Hide overflow */
-  text-align: left; /* Align text to the left */
-  line-height: 1.4; /* Improved line spacing for readability */
-  white-space: pre-line; /* Preserve line breaks */
-}
-
-/* Individual result items */
-#results p {
-  margin: 0; /* Remove default margins */
-  padding: 5px 0; /* Adjust spacing between results */
-  border-bottom: 1px solid #ccc; /* Add separators between results */
-}
-
-
-/* Modifier container */
-#modifier-container {
-  margin-top: 20px;
-}
-
-label {
-  font-size: 18px;
+/* Result display */
+.result {
   font-weight: bold;
-}
-
-input[type="number"] {
-  padding: 10px;
-  font-size: 16px;
-  width: 80px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-right: 10px;
-}
-
-/* Roll with Modifier button */
-#roll-with-modifier {
-  background-color: #1c6ea4;
-  color: white;
-  padding: 15px 30px;
-  font-size: 20px;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#roll-with-modifier:hover {
-  background-color: #14477e;
+  margin-top: 20px;
+  font-size: 18px; /* Slightly smaller font size */
+  color: #ff6b6b; /* Red result text color */
 }

@@ -1,50 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>D&D Dice Roller</title>
-  <link rel="stylesheet" type="text/css" href="dice.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+    <link rel="stylesheet" href="dice.css">
 </head>
-
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-  </nav>
-  <h1>D&D Dice Roller</h1>
-  <div id="dice-container">
-    <button class="dice-button" data-sides="4">d4</button>
-    <button class="dice-button" data-sides="6">d6</button>
-    <button class="dice-button" data-sides="8">d8</button>
-    <button class="dice-button" data-sides="10">d10</button>
-    <button class="dice-button" data-sides="12">d12</button>
-    <button class="dice-button" data-sides="20">d20</button>
-    <button class="dice-button" data-sides="2" onclick="roll2d20()">2d20</button>
-  </div>
-  <div id="clear-button-container">
-    <button class="dice-button" id="clear-button">Clear</button><!-- New clear button -->
-  </div>
-  <h2>Results:</h2>
-  <div id="results"></div>
-  <div id="modifier-container">
-    <label for="modifier">Modifier:</label>
-    <input type="number" id="modifier" min="-999" max="999" value="0" />
-    <button class="dice-button" id="roll-with-modifier-button">
-      Roll with Modifier
-    </button>
-    <label>
-      <input type="radio" name="roll-history" value="5" checked> Remember 5 rolls
-    </label>
-    <label>
-      <input type="radio" name="roll-history" value="10"> Remember 10 rolls
-    </label>
-    <label>
-      <input type="radio" name="roll-history" value="20"> Remember 20 rolls
-    </label>
-  </div>
-  <p>hi</p>
-  <script src="dice.js"></script>
-</body>
+    <h1>Dice Roller</h1>
 
+    <div class="dice-container">
+        <button class="dice-button" data-sides="4">Roll D4</button>
+        <button class="dice-button" data-sides="6">Roll D6</button>
+        <button class="dice-button" data-sides="8">Roll D8</button>
+        <button class="dice-button" data-sides="10">Roll D10</button>
+        <button class="dice-button" data-sides="12">Roll D12</button>
+        <button class="dice-button" data-sides="20">Roll D20</button>
+        <!-- Add more buttons for custom dice, e.g., Roll D100 -->
+        <button class="dice-button" data-sides="100">Roll D100</button>
+        <!-- Move the "Roll 2 D20s" button here -->
+        <button class="dice-button" id="roll-2d20-button">Roll 2 D20s</button>
+    </div>
+
+    <!-- Create a result spot -->
+    <div id="result-display"></div>
+
+    <!-- Create a history spot -->
+    <div id="history">
+        <h2>Roll History</h2>
+        <ul id="history-list"></ul>
+    </div>
+
+    <script src="dice.js"></script>
+</body>
 </html>

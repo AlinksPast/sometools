@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DND Dice Roller</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dice-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #result-box {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #high-roll {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="dice-container">
+        <button class="dice-button" data-sides="4">Roll D4</button>
+        <button class="dice-button" data-sides="6">Roll D6</button>
+        <button class="dice-button" data-sides="8">Roll D8</button>
+        <button class="dice-button" data-sides="10">Roll D10</button>
+        <button class="dice-button" data-sides="12">Roll D12</button>
+        <button class="dice-button" data-sides="20">Roll D20</button>
+        <button id="roll-2d20">Roll 2 D20s</button>
+    </div>
+
+    <div id="result-box"></div>
+    <div id="high-roll"></div>
+
+    <script>
+        // JavaScript code for rolling dice goes here
+        function rollDice(sides) {
+            return Math.floor(Math.random() * sides) + 1;
+        }
+
+        const resultBox = document.getElementById('result-box');
+        const highRollBox = document.getElementById('high-roll');
+        const diceButtons = document.querySelectorAll('.dice-button');
+
+        diceButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const sides = parseInt(button.getAttribute('data-sides'));
+                const result = rollDice(sides);
+                resultBox.innerText = `You rolled a D${sides} and got: ${result}`;
+                highRollBox.innerText = '';
+            });
+        });
+
+        document.getElementById('roll-2d20').addEventListener('click', function () {
+            const roll1 = rollDice(20);
+            const roll2 = rollDice(20);
+            resultBox.innerText = `You rolled 2 D20s: ${roll1} and ${roll2}`;
+            highRollBox.innerText = `The higher roll is: ${Math.max(roll1, roll2)}`;
+        });
+    </script>
+</body>
+</html>
+
