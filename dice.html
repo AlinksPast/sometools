@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>D&D Dice Roller</title>
-    <link rel="stylesheet" type="text/css" href="dice.css" />
-  </head>
 
-  <body>
-    <nav>
-      <a href="index.html"></a>
-    </nav>
-    <h1>D&D Dice Roller</h1>
-    <div id="dice-container">
-      <button class="dice-button" onclick="rollDie(4)">d4</button>
-      <button class="dice-button" onclick="rollDie(6)">d6</button>
-      <button class="dice-button" onclick="rollDie(8)">d8</button>
-      <button class="dice-button" onclick="rollDie(10)">d10</button>
-      <button class="dice-button" onclick="rollDie(12)">d12</button>
-      <button class="dice-button" onclick="rollDie(20)">d20</button>
-      <button class="dice-button" onclick="roll2d20()">2d20</button>
-    </div>
-    <div id="clear-button-container">
-      <button class="dice-button" onclick="clearResults()">Clear</button
-      ><!-- New clear button -->
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D&D Dice Roller</title>
+  <link rel="stylesheet" type="text/css" href="dice.css" />
+</head>
 
-    <h2>Results:</h2>
-    <div id="results"></div>
-    <div id="modifier-container">
-      <label for="modifier">Modifier:</label>
-      <input type="number" id="modifier" min="-999" max="999" value="0" />
-      <button class="dice-button" onclick="rollWithModifier()">
-        Roll with Modifier
-      </button>
-    </div>
-    <p>hi</p>
-    <script src="dice.js"></script>
-  </body>
+<body>
+  <nav>
+    <a href="index.html"></a>
+  </nav>
+  <h1>D&D Dice Roller</h1>
+  <div id="dice-container">
+    <button class="dice-button" data-sides="4">d4</button>
+    <button class="dice-button" data-sides="6">d6</button>
+    <button class="dice-button" data-sides="8">d8</button>
+    <button class="dice-button" data-sides="10">d10</button>
+    <button class="dice-button" data-sides="12">d12</button>
+    <button class="dice-button" data-sides="20">d20</button>
+    <button class="dice-button" data-sides="2" onclick="roll2d20()">2d20</button>
+  </div>
+  <div id="clear-button-container">
+    <button class="dice-button" id="clear-button">Clear</button><!-- New clear button -->
+  </div>
+  <h2>Results:</h2>
+  <div id="results"></div>
+  <div id="modifier-container">
+    <label for="modifier">Modifier:</label>
+    <input type="number" id="modifier" min="-999" max="999" value="0" />
+    <button class="dice-button" id="roll-with-modifier-button">
+      Roll with Modifier
+    </button>
+    <label>
+      <input type="radio" name="roll-history" value="5" checked> Remember 5 rolls
+    </label>
+    <label>
+      <input type="radio" name="roll-history" value="10"> Remember 10 rolls
+    </label>
+    <label>
+      <input type="radio" name="roll-history" value="20"> Remember 20 rolls
+    </label>
+  </div>
+  <p>hi</p>
+  <script src="dice.js"></script>
+</body>
+
 </html>
