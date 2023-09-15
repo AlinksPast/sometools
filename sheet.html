@@ -1,33 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - TTRPG Tools</title>
-    <link rel="stylesheet" href="sheet.css"> <!-- Link to your stylesheet -->
+    <title>D&D Stats and Skills Calculator</title>
+    <link rel="stylesheet" href="sheet.css">
+    <script>
+        function calculateModifiers() {
+            const getVal = (id) => parseInt(document.getElementById(id).value);
+            const setMod = (id, value) => document.getElementById(id + 'Modifier').textContent = value;
+
+            const level = getVal('level');
+            const proficiencyBonus = calculateProficiencyBonus(level);
+            document.getElementById('proficiencyBonus').textContent = proficiencyBonus;
+
+            const stats = ['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma'];
+            const modifiers = {};
+
+            for (const stat of stats) {
+                const value = getVal(stat);
+                const modifier = Math.floor((value - 10) / 2);
+                modifiers[stat] = modifier; // Store modifier in the modifiers object
+                setMod(stat, modifier);
+            }
+
+            const skills = {
+                'Acrobatics': 'dexterity',
+                'AnimalHandling': 'wisdom',
+                'Arcana': 'intelligence',
+                'Athletics': 'strength',
+                'Deception': 'charisma',
+                'History': 'intelligence',
+                'Insight': 'wisdom',
+                'Intimidation': 'charisma',
+                'Investigation': 'intelligence',
+                'Medicine': 'wisdom',
+                'Nature': 'intelligence',
+                'Perception': 'wisdom',
+                'Performance': 'charisma',
+                'Persuasion': 'charisma',
+                'Religion': 'intelligence',
+                'SleightOfHand': 'dexterity',
+                'Stealth': 'dexterity',
+                'Survival': 'wisdom'
+            };
+
+            for (const skill in skills) {
+                const ability = skills[skill];
+                const modifier = modifiers[ability]; // Get the modifier from the modifiers object
+                setMod(skill, modifier);
+            }
+        }
+
+        function calculateProficiencyBonus(level) {
+            return Math.ceil(level / 4) + 1;
+        }
+    </script>
 </head>
 <body>
-    <header>
-        <h1>Welcome to TTRPG Tools</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="tools.html">Tools</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <a href="index.html">Home</a>
+    </nav>
+    <fieldset>
+        <legend>Character Information</legend>
+        <label for="level">Level:</label>
+        <input type="number" id="level" oninput="calculateModifiers()">
+        Proficiency Bonus: <span id="proficiencyBonus">0</span>
+    </fieldset>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Welcome to TTRPG Tools, your all-in-one resource for tabletop role-playing game (TTRPG) utilities and tools.</p>
-        <p>Our mission is to provide the best resources to TTRPG players and Dungeon Masters (DMs), making your gaming experience more enjoyable and efficient.</p>
-        <p>Whether you're a seasoned player or just starting your TTRPG journey, our collection of tools can help you create characters, manage spellbooks, build encounters, and much more.</p>
-        <p>We are passionate about the world of TTRPGs and are dedicated to continuously improving and expanding our offerings. Feel free to reach out to us with any suggestions or feedback!</p>
-    </section>
+    <fieldset>
+        <legend>D&D Stats</legend>
+        <label for="strength">Strength:</label>
+        <input type="number" id="strength" oninput="calculateModifiers()">
+        Modifier: <span id="strengthModifier"></span><br>
 
-    <footer>
-        <p>&copy; 2023 TTRPG Tools</p>
-    </footer>
+        <label for="dexterity">Dexterity:</label>
+        <input type="number" id="dexterity" oninput="calculateModifiers()">
+        Modifier: <span id="dexterityModifier"></span><br>
+
+        <label for="constitution">Constitution:</label>
+        <input type="number" id="constitution" oninput="calculateModifiers()">
+        Modifier: <span id="constitutionModifier"></span><br>
+
+        <label for="intelligence">Intelligence:</label>
+        <input type="number" id="intelligence" oninput="calculateModifiers()">
+        Modifier: <span id="intelligenceModifier"></span><br>
+
+        <label for="wisdom">Wisdom:</label>
+        <input type="number" id="wisdom" oninput="calculateModifiers()">
+        Modifier: <span id="wisdomModifier"></span><br>
+
+        <label for="charisma">Charisma:</label>
+        <input type="number" id="charisma" oninput="calculateModifiers()">
+        Modifier: <span id="charismaModifier"></span>
+    </fieldset>
+
+    <fieldset>
+        <legend>D&D Skills</legend>
+    
+        <!-- Skills with corresponding modifiers -->
+        <label for="Acrobatics">Acrobatics:</label>
+        Modifier: <span id="AcrobaticsModifier"></span><br><br>
+    
+        <label for="AnimalHandling">Animal Handling:</label>
+        Modifier: <span id="AnimalHandlingModifier"></span><br><br>
+    
+        <label for="Arcana">Arcana:</label>
+        Modifier: <span id="ArcanaModifier"></span><br><br>
+    
+        <label for="Athletics">Athletics:</label>
+        Modifier: <span id="AthleticsModifier"></span><br><br>
+    
+        <label for="Deception">Deception:</label>
+        Modifier: <span id="DeceptionModifier"></span><br><br>
+    
+        <label for="History">History:</label>
+        Modifier: <span id="HistoryModifier"></span><br><br>
+    
+        <label for="Insight">Insight:</label>
+        Modifier: <span id="InsightModifier"></span><br><br>
+    
+        <label for="Intimidation">Intimidation:</label>
+        Modifier: <span id="IntimidationModifier"></span><br><br>
+    
+        <label for="Investigation">Investigation:</label>
+        Modifier: <span id="InvestigationModifier"></span><br><br>
+    
+        <label for="Medicine">Medicine:</label>
+        Modifier: <span id="MedicineModifier"></span><br><br>
+    
+        <label for="Nature">Nature:</label>
+        Modifier: <span id="NatureModifier"></span><br><br>
+    
+        <label for="Perception">Perception:</label>
+        Modifier: <span id="PerceptionModifier"></span><br><br>
+    
+        <label for="Performance">Performance:</label>
+        Modifier: <span id="PerformanceModifier"></span><br><br>
+    
+        <label for="Persuasion">Persuasion:</label>
+        Modifier: <span id="PersuasionModifier"></span><br><br>
+    
+        <label for="Religion">Religion:</label>
+        Modifier: <span id="ReligionModifier"></span><br><br>
+    
+        <label for="SleightOfHand">Sleight of Hand:</label>
+        Modifier: <span id="SleightOfHandModifier"></span><br><br>
+    
+        <label for="Stealth">Stealth:</label>
+        Modifier: <span id="StealthModifier"></span><br><br>
+    
+        <label for="Survival">Survival:</label>
+        Modifier: <span id="SurvivalModifier"></span><br><br>
+    </fieldset>
+    
 </body>
 </html>

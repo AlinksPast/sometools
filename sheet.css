@@ -1,122 +1,127 @@
 /* Reset some default styles */
-body, h1, p, ul, li, a {
-    margin: 0;
-    padding: 0;
+body,
+h1,
+p,
+ul,
+li,
+a {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #111; /* Dark background color */
-    text-align: center;
-    color: #fff; /* Text color */
+  font-family: Arial, sans-serif;
+  background-color: #111; /* Dark background color */
+  text-align: center;
+  color: #fff; /* Text color */
 }
 
 h1 {
-    background-color: #ff6b6b; /* Red header background color */
-    color: #fff; /* Header text color */
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px; /* Rounded header corners */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Header box shadow */
+  background-color: #ff6b6b; /* Red header background color */
+  color: #fff; /* Header text color */
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px; /* Rounded header corners */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Header box shadow */
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
 
 nav ul {
-    list-style: none;
+  list-style: none;
 }
 
 nav ul li {
-    display: inline-block;
-    margin-right: 20px;
+  display: inline-block;
+  margin-right: 20px;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
 }
 
 nav ul li a:hover {
-    color: #ffaa00; /* Hovered link color */
+  color: #ffaa00; /* Hovered link color */
 }
 
 #hero {
-    background-image: url('hero-background.jpg'); /* Replace with your image */
-    background-size: cover;
-    background-position: center;
-    padding: 100px 0;
+  background-image: url("hero-background.jpg"); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
 }
 
 #hero p {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 #content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #333; /* Dark gray container background color */
-    border-radius: 10px; /* Rounded container corners */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); /* Container box shadow */
-    text-align: left; /* Align the content to the left */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #333; /* Dark gray container background color */
+  border-radius: 10px; /* Rounded container corners */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); /* Container box shadow */
+  text-align: left; /* Align the content to the left */
 }
 
 #content h2 {
-    font-size: 28px; /* Increase font size for section headings */
-    color: #ff6b6b; /* Red section heading color */
-    margin-bottom: 20px;
+  font-size: 28px; /* Increase font size for section headings */
+  color: #ff6b6b; /* Red section heading color */
+  margin-bottom: 20px;
 }
 
 #content p {
-    font-size: 18px; /* Increase font size for content text */
-    margin-bottom: 10px;
+  font-size: 18px; /* Increase font size for content text */
+  margin-bottom: 10px;
 }
 
 #content ul {
-    list-style: disc;
-    margin-left: 20px;
+  list-style: disc;
+  margin-left: 20px;
 }
 
 #about {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #333; /* Dark gray container background color */
-    border-radius: 10px; /* Rounded container corners */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); /* Container box shadow */
-    text-align: left; /* Align the content to the left */
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #333; /* Dark gray container background color */
+  border-radius: 10px; /* Rounded container corners */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); /* Container box shadow */
+  text-align: left; /* Align the content to the left */
 }
 
 #about h2 {
-    font-size: 28px; /* Increase font size for section headings */
-    color: #ff6b6b; /* Red section heading color */
-    margin-bottom: 20px;
+  font-size: 28px; /* Increase font size for section headings */
+  color: #ff6b6b; /* Red section heading color */
+  margin-bottom: 20px;
 }
 
 #about p {
-    font-size: 18px; /* Increase font size for content text */
-    margin-bottom: 10px;
+  font-size: 18px; /* Increase font size for content text */
+  margin-bottom: 10px;
 }
 
 #about a {
-    text-decoration: none;
-    color: #ffaa00; /* Orange link color */
-    font-weight: bold;
+  text-decoration: none;
+  color: #ffaa00; /* Orange link color */
+  font-weight: bold;
 }
 
 #about a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 footer {
-    background-color: #333; /* Dark gray footer background color */
-    color: #fff; /* Footer text color */
-    padding: 10px 0;
-    text-align: center;
+  background-color: #333; /* Dark gray footer background color */
+  color: #fff; /* Footer text color */
+  padding: 10px 0;
+  text-align: center;
 }

@@ -1,47 +1,57 @@
-const skills = {
-    'Athletics': 'strength',
-    'Acrobatics': 'dexterity',
-    'Stealth': 'dexterity',
-    'Constitution Save': 'constitution',
-    'Arcana': 'intelligence',
-    'History': 'intelligence',
-    'Nature': 'intelligence',
-    'Religion': 'intelligence',
-    'Insight': 'wisdom',
-    'Perception': 'wisdom',
-    'Survival': 'wisdom',
-    'Animal Handling': 'wisdom',
-    'Deception': 'charisma',
-    'Intimidation': 'charisma',
-    'Performance': 'charisma',
-    'Persuasion': 'charisma',
-};
-
-// Function to calculate modifiers and skills
-function calculateModifiersAndSkills() {
-    const stats = ['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma'];
-
-    for (const stat of stats) {
-        const abilityScore = parseInt(document.getElementById(stat).value);
-        if (!isNaN(abilityScore)) {
-            const modifier = Math.floor((abilityScore - 10) / 2);
-
-            // Update modifier and skill for the current stat
-            document.getElementById(`${stat}-modifier`).textContent = `Modifier: ${modifier}`;
-            for (const skill in skills) {
-                if (skills[skill] === stat) {
-                    document.getElementById(`${stat}-skill`).textContent = `${skill}: ${modifier}`;
-                }
-            }
-        }
-    }
+// Function to calculate modifier
+function calculateModifier(abilityScore) {
+    return Math.floor((abilityScore - 10) / 2);
 }
 
-// Add event listeners to input fields to trigger updates
-const inputFields = document.querySelectorAll('input[type="number"]');
-inputFields.forEach(inputField => {
-    inputField.addEventListener('input', calculateModifiersAndSkills);
+// Function to update the modifiers for a specific element
+function updateModifierElement(elementId, abilityId) {
+    const inputElement = document.getElementById(abilityId);
+    const modifierElement = document.getElementById(elementId);
+    const abilityScore = parseInt(inputElement.value);
+    modifierElement.textContent = `${modifierElement.textContent.split(":")[0]}: ${calculateModifier(abilityScore)}`;
+}
+
+// Function to update all modifiers
+function updateModifiers() {
+    // Update ability score modifiers
+    updateModifierElement("strength-modifier", "strength");
+    updateModifierElement("dexterity-modifier", "dexterity");
+    updateModifierElement("constitution-modifier", "constitution");
+    updateModifierElement("intelligence-modifier", "intelligence");
+    updateModifierElement("wisdom-modifier", "wisdom");
+    updateModifierElement("charisma-modifier", "charisma");
+
+    // Update skill modifiers
+    const skillIds = [
+        "Athletics-skill", "Acrobatics-skill", "Stealth-skill", "Arcana-skill",
+        "History-skill", "Nature-skill", "Religion-skill", "Insight-skill",
+        "Perception-skill", "Survival-skill", "Animal-Handling-skill",
+        "Deception-skill", "Intimidation-skill", "Performance-skill", "Persuasion-skill"
+    ];
+
+    skillIds.forEach((skillId) => {
+        const ability = skillId.split("-")[0]; // Extract the ability name
+        updateModifierElement(skillId, ability.toLowerCase());
+    });
+
+    // Update saving throw modifiers
+    const savingThrowIds = [
+        "Strength-Save-skill", "Dexterity-Save-skill", "Constitution-Save-skill",
+        "Intelligence-Save-skill", "Wisdom-Save-skill", "Charisma-Save-skill"
+    ];
+
+    savingThrowIds.forEach((savingThrowId) => {
+        const ability = savingThrowId.split("-")[0]; // Extract the ability name
+        updateModifierElement(savingThrowId, ability.toLowerCase());
+    });
+}
+
+// Add event listeners to input elements to update modifiers
+const abilityIds = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
+abilityIds.forEach((abilityId) => {
+    const inputElement = document.getElementById(abilityId);
+    inputElement.addEventListener("input", updateModifiers);
 });
 
-// Initial calculation on page load
-calculateModifiersAndSkills();
+// Initial update of modifiers
+updateModifiers();
